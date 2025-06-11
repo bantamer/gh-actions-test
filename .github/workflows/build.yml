@@ -11,4 +11,4 @@ jobs:
 
     steps:
       - name: Deploy step
-        run: echo "🚀"
+        run: echo ${{ github.ref }}
