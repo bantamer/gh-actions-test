@@ -5,10 +5,14 @@ on:
     types:
       - completed
 jobs:
-  type-check:
+  build:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-
     steps:
-      - name: Deploy step
-        run: echo ${{ github.ref }}
+      - name: Checkout correct branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
+
+      - run: echo "Building on ${{ github.event.workflow_run.head_branch }}"
+
