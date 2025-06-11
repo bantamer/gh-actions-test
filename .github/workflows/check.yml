@@ -1,7 +1,7 @@
 name: Type Check
 on:
   workflow_run:
-    workflows: ["Build"]
+    workflows: ["Lint"]
     types:
       - completed
 jobs:
